@@ -2,7 +2,6 @@ export default class Elevator {
   constructor() {
     this.currentFloor = 0;
     this.queue = [];
-    this.passengers = [];
     this.stops = 0
     this.floorsTraversed = 0
   }

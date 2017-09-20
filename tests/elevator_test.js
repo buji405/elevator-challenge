@@ -26,7 +26,6 @@ describe('Elevator', () => {
   it('should have default properties', () => {
     assert.equal(elevator.currentFloor, 0);
     assert.deepEqual(elevator.queue, []);
-    assert.deepEqual(elevator.passengers, []);
     assert.equal(elevator.stops, 0);
     assert.equal(elevator.floorsTraversed, 0);
   });
@@ -34,7 +33,6 @@ describe('Elevator', () => {
   it('should reset properties when reset is called', () => {
     elevator.currentFloor = 2;
     elevator.queue = [2,3,4];
-    elevator.passengers = ['ciara', 'britbrit', 'roberto'];
     elevator.stops = 3;
     elevator.floorsTraversed = 5;
 
@@ -42,7 +40,6 @@ describe('Elevator', () => {
 
     assert.equal(elevator.currentFloor, 0);
     assert.deepEqual(elevator.queue, []);
-    assert.deepEqual(elevator.passengers, []);
     assert.equal(elevator.stops, 0);
     assert.equal(elevator.floorsTraversed, 0);
 
@@ -56,7 +53,6 @@ describe('Elevator', () => {
     assert.equal(elevator.floorsTraversed, 6);
     assert.equal(elevator.stops, 2);
     assert.equal(elevator.queue.length, 1);
-    assert.equal(elevator.passengers.length, 1);
   })
 
   it('should go to a passengers current floor then drop off at a higher floor', () => {
@@ -68,7 +64,6 @@ describe('Elevator', () => {
     assert.equal(elevator.floorsTraversed, 7);
     assert.equal(elevator.stops, 2);
     assert.equal(elevator.queue.length, 1);
-    assert.equal(elevator.passengers.length, 1);
   });
 
   it('should pick up and drop off multiple people ', () => {
@@ -76,7 +71,6 @@ describe('Elevator', () => {
     let person2 = new Person('Dr. Dre', 7, 10);
 
     elevator.goToFloor(person1);
-    assert.deepEqual(elevator.passengers, ['Shaniqua']);
     assert.equal(elevator.queue.length, 1);
     assert.equal(elevator.stops, 2);
     assert.equal(elevator.floorsTraversed, 8);
@@ -84,7 +78,6 @@ describe('Elevator', () => {
     assert.equal(person1.dropOffFloor, 8);
 
     elevator.goToFloor(person2);
-    assert.deepEqual(elevator.passengers, ['Shaniqua', 'Dr. Dre']);
     assert.equal(elevator.queue.length, 2);
     assert.equal(elevator.stops, 4);
     assert.equal(elevator.floorsTraversed, 10);
