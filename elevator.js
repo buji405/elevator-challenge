@@ -21,7 +21,6 @@ export default class Elevator {
       this.currentFloor++;
       this.floorsTraversed++;
     }
-    this.passengers.push(person.name);
     this.stops++;
 
     while (this.currentFloor > person.dropOffFloor) {
